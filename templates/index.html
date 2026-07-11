@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Predictive Maintenance Agent</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Predictive Maintenance Agent</h1>
+
+    <p>Predict equipment failures before they happen using AI.</p>
+
+    <hr><br>
+
+    <form action="/predict" method="POST">
+
+        <label>Temperature (°C)</label><br>
+        <input type="number" name="temperature" required><br><br>
+
+        <label>Voltage (V)</label><br>
+        <input type="number" name="voltage" required><br><br>
+
+        <label>Current (A)</label><br>
+        <input type="number" name="current" required><br><br>
+
+        <label>Running Hours</label><br>
+        <input type="number" name="hours" required><br><br>
+
+        <label>Vibration</label><br>
+        <select name="vibration">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Analyze Machine</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

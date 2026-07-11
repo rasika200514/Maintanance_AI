@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Predictive Maintenance Report</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Predictive Maintenance Report</h1>
+
+    <hr>
+
+    <h2>🟢 Machine Health Score</h2>
+
+    <div class="score">
+        {{ score }}%
+    </div>
+
+    <hr>
+
+    <h2>🚨 Risk Level</h2>
+
+    {% if score >= 80 %}
+
+    <div style="background:#d4edda;
+                color:#155724;
+                padding:15px;
+                border-radius:8px;
+                font-size:22px;
+                font-weight:bold;
+                text-align:center;">
+        ✅ LOW RISK
+    </div>
+
+    {% elif score >= 50 %}
+
+    <div style="background:#fff3cd;
+                color:#856404;
+                padding:15px;
+                border-radius:8px;
+                font-size:22px;
+                font-weight:bold;
+                text-align:center;">
+        ⚠️ MEDIUM RISK
+    </div>
+
+    {% else %}
+
+    <div style="background:#f8d7da;
+                color:#721c24;
+                padding:15px;
+                border-radius:8px;
+                font-size:22px;
+                font-weight:bold;
+                text-align:center;">
+        🔴 HIGH RISK
+    </div>
+
+    {% endif %}
+
+    <hr>
+
+    <h2>📋 Machine Parameters</h2>
+
+    <table width="100%" cellpadding="10">
+
+        <tr>
+            <td><b>🌡 Temperature</b></td>
+            <td>{{ temp }} °C</td>
+        </tr>
+
+        <tr>
+            <td><b>⚡ Voltage</b></td>
+            <td>{{ voltage }} V</td>
+        </tr>
+
+        <tr>
+            <td><b>🔌 Current</b></td>
+            <td>{{ current }} A</td>
+        </tr>
+
+        <tr>
+            <td><b>⏱ Running Hours</b></td>
+            <td>{{ hours }}</td>
+        </tr>
+
+        <tr>
+            <td><b>📳 Vibration</b></td>
+            <td>{{ vibration }}</td>
+        </tr>
+
+    </table>
+
+    <hr>
+
+    <h2>🤖 AI Analysis & Recommendation</h2>
+
+    <div class="result-box">
+        <pre>{{ result }}</pre>
+    </div>
+
+    <br>
+
+    <a href="/">
+        <button>🔄 Analyze Another Machine</button>
+    </a>
+
+</div>
+
+</body>
+</html>
